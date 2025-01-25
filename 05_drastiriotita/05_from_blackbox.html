@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="el">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ενσωμάτωση Βίντεο σε Ιστοσελίδα</title>
+    <style>
+        h1 {
+            font-size: 2.5em;
+        }
+    </style>
+</head>
+<body>
+    <h1>Ενσωμάτωση Βίντεο σε Ιστοσελίδα</h1>
+    <video id="myVideo" width="540" controls>
+        <source src="examplevideo.mp4" type="video/mp4">
+        Your browser does not support the video tag.
+    </video>
+    <br>
+    <button id="playPauseBtn">Αναπαραγωγή/Παύση</button>
+
+    <script>
+        const video = document.getElementById("myVideo");
+        const button = document.getElementById("playPauseBtn");
+
+        button.addEventListener("click", function() {
+            if (video.paused) {
+                video.play();
+            } else {
+                video.pause();
+            }
+        });
+    </script>
+</body>
+</html>

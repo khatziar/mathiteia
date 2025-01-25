@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Δραστηριότητα 13</title>
+    <script>
+      function calculate() {
+        // Δήλωση μεταβλητών const για τις τιμές των πεδίων εισόδου, const γιατί δεν αλλάζουν
+        const varos = document.getElementById("varos").value;
+        const ipsos = document.getElementById("ipsos").value;
+        const dms = varos / Math.pow(ipsos / 100, 2);
+        if (dms < 18.5) 
+          message = "Ελλιποβαρής" 
+        else if (dms < 25) 
+          message = "Φυσιολογικός";
+        else if (dms < 30) 
+          message = "Υπέρβαρος";
+        else message = "Παχύσαρκος";
+        // Εμφάνιση μηνύματος με backticks και template literals
+        alert(`Ο Δείκτης Μάζας Σώματος είναι: ${dms.toFixed(2)}\nΚατηγορία: ${message}`); 
+        // εμφάνιση μηνύματος χωρίς template literals
+        //alert("Ο Δείκτης Μάζας Σώματος είναι: " + dms.toFixed(2) + "\nΚατηγορία: " + message);
+      }
+    </script>
+  </head>
+  <body>
+      
+          <h1 >Javascript - Υπολογισμός Δείκτη Μάζας Σώματος</h1>
+          <form >
+              <div >
+                  <label for="varos">Βάρος (kg):</label>
+                  <input type="number"  id="varos" name="varos" />
+              </div>
+              <div>
+                  <label for="ipsos">Ύψος (cm):</label>
+                  <input type="number" id="ipsos" name="ipsos" />
+              </div>
+              <button type="button"  onclick="calculate()">Υπολογισμός</button>
+          </form>
+  </body>
+  </html>
+</html>

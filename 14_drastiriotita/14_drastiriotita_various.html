@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Δραστηριότητα 14</title>
+    <script>
+      function trigono() {
+        // Δήλωση μεταβλητών const για τις τιμές των πεδίων εισόδου, const γιατί δεν αλλάζουν
+        // και μετατροπή των τιμών σε ακέραιους αριθμούς  με την parseFloat γιατί τα πεδία εισόδου είναι τύπου text
+        const a = parseFloat(document.getElementById("a").value);
+        const b = parseFloat(document.getElementById("b").value);
+        const c = parseFloat(document.getElementById("c").value);
+
+        if (!(a+b+c==180)) {
+          alert("Όχι τρίγωνο");
+          document.getElementById("result").style.display = "none"; //κρύβει το div
+          return;
+        }
+      else {
+        document.getElementById("result").style.display = "block"; //εμφανίζει το div
+        if (a == b && b == c) 
+          message = "ισόπλευρο";
+        else if (a == b || b == c || a == c) 
+          message = "ισοσκελές";
+        else message = "σκαληνό";
+      }
+        // Εμφάνιση μηνύματος με backticks και template literals
+        // alert(`Το τρίγωνο είναι ${message}`); 
+
+        //να δούμε τις τιμές των μεταβλητών
+        document.getElementById("result").innerHTML = `a=${a}, b=${b}, c=${c}<br>Το τρίγωνο είναι ${message}`;
+        //στην κονσόλα
+        console.log(`Το τρίγωνο είναι ${message}`);
+        }
+    </script>
+  </head>
+  <body>
+      
+          <h1 >Javascript - Αναγνώριση τριγώνου από τις 3 γωνίες του</h1>
+          <form >
+              <div >
+                  <label for="a">Γωνία Α:</label>
+                  <input type="text"  id="a" name="a"  />
+              </div>
+              <div>
+                  <label for="b">Γωνία B:</label>
+                  <input type="text"  id="b" name="b" />
+              <div >
+                  <label for="c">Γωνία Γ:</label>
+                  <input type="text"  id="c" name="c" />
+              </div>
+             
+              <button type="button"  onclick="trigono()">Τρίγωνο</button>
+              <input type="reset" value="Καθαρισμός">
+          </form>
+          <div id="result"></div> <!-- Εδώ θα εμφανίζεται το αποτέλεσμα -->
+  </body>
+  </html>
+</html>

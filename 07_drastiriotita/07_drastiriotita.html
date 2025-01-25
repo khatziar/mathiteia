@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Δραστηριότητα 07</title>
+</head>
+<body>
+    <div style="text-align: center">
+
+    <h1>Ενσωμάτωση Φωτογραφίας σε Ιστοσελίδα</h1>
+    <div>
+        <button type="button" id="megaliBtn" onclick="megali()">Μεγάλη</button>
+        <button type="button" id="kanonikiBtn" onclick="kanoniki()">Κανονική</button>
+        <br>
+    </div>
+        
+    <img id=photo src="web.jpg" alt="Web" width="40%">
+    </div>
+    <script>
+        function megali() {
+            document.getElementById("photo").style.width = "80%";
+        }
+        
+        function kanoniki() {
+            document.getElementById("photo").style.width = "40%";
+        }
+        </script>
+</body>
+</html>

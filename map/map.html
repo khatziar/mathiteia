@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Χάρτες Google - iframe - </title>
+
+  </head>
+  <body>
+    <h1>Google Map - Thessaloniki</h1>
+    <p>Πάτα το κουμπί να δεις τις συντεταγμένες που βρίσκεσαι.</p>
+    <button onclick="getLocation()">Συντεταγμένες</button>
+    <!-- Στοιχείο HTML για εμφάνιση των συντεταγμένων του χρήστη -->
+    <p id="demo"></p>
+    <!-- Στοιχείο HTML για εμφάνιση του χάρτη Google Maps -->
+    <!-- Το πλάτος είναι 100% και το ύψος 600px -->
+    <div id="googleMap" style="width: 100%; height: 600px"></div>
+
+    <script>
+      var position; // Μεταβλητή για αποθήκευση της θέσης
+      var x = document.getElementById("demo"); // Αναφορά στο στοιχείο HTML με id "demo"
+
+      // Συνάρτηση για λήψη της τοποθεσίας του χρήστη
+      function getLocation() {
+        if (navigator.geolocation) {
+          // Έλεγχος αν το πρόγραμμα περιήγησης υποστηρίζει γεωεντοπισμό
+          navigator.geolocation.getCurrentPosition(showPosition); // Λήψη της τρέχουσας θέσης και κλήση της συνάρτησης showPosition
+        } else {
+          x.innerHTML = "Geolocation is not supported by this browser."; // Μήνυμα αν ο γεωεντοπισμός δεν υποστηρίζεται
+        }
+      }
+
+      // Συνάρτηση που καλείται όταν η θέση του χρήστη είναι διαθέσιμη
+      function showPosition(pos) {
+        position = pos; // Αποθήκευση της θέσης στη μεταβλητή position
+        x.innerHTML =
+          "Latitude: " +
+          position.coords.latitude + // Εμφάνιση του γεωγραφικού πλάτους
+          "<br>Longitude: " +
+          position.coords.longitude; // Εμφάνιση του γεωγραφικού μήκους
+        myMap(); // Κλήση της συνάρτησης myMap για εμφάνιση του χάρτη
+      }
+
+      // Συνάρτηση για δημιουργία και εμφάνιση του χάρτη
+      function myMap() {
+        var lat = position.coords.latitude; // Λήψη του γεωγραφικού πλάτους από τη θέση
+        var lon = position.coords.longitude; // Λήψη του γεωγραφικού μήκους από τη θέση
+        var mapProp = {
+          center: new google.maps.LatLng(lat, lon), // Ορισμός του κέντρου του χάρτη στη θέση του χρήστη
+          zoom: 10, // Ορισμός του επιπέδου ζουμ του χάρτη
+        };
+        var map = new google.maps.Map(
+          document.getElementById("googleMap"),
+          mapProp
+        ); // Δημιουργία του χάρτη και εμφάνισή του στο στοιχείο με id "googleMap"
+      }
+    </script>
+
+    <!-- Φόρτωση της βιβλιοθήκης Google Maps JavaScript API -->
+    <!-- Το 'key' πρέπει να αντικατασταθεί με το έγκυρο API key σας -->
+    <!-- Το 'callback' ορίζει τη συνάρτηση που θα κληθεί όταν η βιβλιοθήκη φορτωθεί -->
+    <script src="https://maps.googleapis.com/maps/api/js?key=&callback=myMap"></script>
+  
+  <hr>
+  <h1>Ενσωμάτωση άλλης ιστοσελίδας</h1>
+  <p>Παράδειγμα ενσωμάτωσης της ιστοσελίδας της Δράσης για την Άγρια Ζωή.</p>
+  <iframe src="https://drasi-agriazoi.gr" width="100%" height="600"></iframe> 
+  
+  </body>
+</html>

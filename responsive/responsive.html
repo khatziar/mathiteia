@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Δραστηριότητα 08 - Responsive layout</title>
+    <style>
+      /* τα περιεχόμενα δηλ οι κάρτες στην οριζόντια σειρά */
+      .container {
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+      }
+      /* Τα περιεχόμενα της κάθε κάρτας σε κάθετη διάταξη - block */
+      .card {
+        display: block;
+        align-items: start;
+        margin-right: 20px;
+      } 
+
+      /* Media query για οθόνες με πλάτος μεταξύ 480px και 1000px */
+      @media screen and (min-width: 480px) and (max-width: 1000px) {
+      /* Στυλ για τα στοιχεία με την κλάση "container" */
+      .container {
+          display: flex; /* Χρήση flexbox για διάταξη των παιδιών στοιχείων */
+          flex-direction: column; /* Τα παιδιά στοιχεία θα τοποθετηθούν σε στήλη */
+      }
+      /* Στυλ για το πρώτο στοιχείο με την κλάση "card" */
+      .card:nth-of-type(1) {
+          order: 2; /* Τοποθέτηση του πρώτου στοιχείου στη δεύτερη θέση */
+      }
+      /* Στυλ για το δεύτερο στοιχείο με την κλάση "card" */
+      .card:nth-of-type(2) {
+          order: 1; /* Τοποθέτηση του δεύτερου στοιχείου στην πρώτη θέση */
+      }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <div class="card">
+        <h1>Αρχική φωτο</h1>
+        <img src="otetower.jpg" alt="pyrgos ote synchronos" />
+      </div>
+      <div class="card">
+        <h1>Τελική</h1>
+        <img src="otetower_retro.png" alt="pyrgos ote retro" />
+      </div>
+    </div>
+  </body>
+</html>

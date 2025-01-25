@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <title>Δραστηριότητα 13</title>
+    <script>
+      function calculate() {
+        // Δήλωση μεταβλητών const για τις τιμές των πεδίων εισόδου, const γιατί δεν αλλάζουν
+        const varos = document.getElementById("varos").value;
+        const ipsos = document.getElementById("ipsos").value;
+        const dms = varos / Math.pow(ipsos / 100, 2);
+        if (dms < 18.5) 
+          message = "Ελλιποβαρής" 
+        else if (dms < 25) 
+          message = "Φυσιολογικός";
+        else if (dms < 30) 
+          message = "Υπέρβαρος";
+        else message = "Παχύσαρκος";
+        // Εμφάνιση μηνύματος με backticks και template literals
+        alert(`Ο Δείκτης Μάζας Σώματος είναι: ${dms.toFixed(2)}\nΚατηγορία: ${message}`); 
+        // εμφάνιση μηνύματος χωρίς template literals
+        //alert("Ο Δείκτης Μάζας Σώματος είναι: " + dms.toFixed(2) + "\nΚατηγορία: " + message);
+      }
+    </script>
+  </head>
+  <body>
+      <div class="container mt-5">
+          <h1 class="text-center">Javascript - Υπολογισμός Δείκτη Μάζας Σώματος</h1>
+          <form class="mt-4">
+              <div class="form-group">
+                  <label for="varos">Βάρος (kg):</label>
+                  <input type="number" class="form-control" id="varos" name="varos" />
+              </div>
+              <div class="form-group">
+                  <label for="ipsos">Ύψος (cm):</label>
+                  <input type="number" class="form-control" id="ipsos" name="ipsos" />
+              </div>
+              <button type="button" class="btn btn-primary btn-block" onclick="calculate()">Υπολογισμός</button>
+          </form>
+      </div>
+  
+      <!-- Bootstrap JS and dependencies  -->
+      <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+      <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"></script>
+      <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+     
+  </body>
+  </html>
+</html>
