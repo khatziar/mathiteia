@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Δραστηριότητα 16</title>
+    <script>
+      function convert() {
+        let vathmos = document.getElementById("vathmos").value;
+        if (isNaN(vathmos)) { // Έλεγχος αν ο χρήστης έδωσε αριθμό
+          alert("Δώσε αριθμό");
+          return; // Επιστροφή στην αρχή της συνάρτησης
+        } 
+        let CF = "";
+         if (document.getElementById("CtoF").checked == true) { // Έλεγχος αν το radio button CtoF είναι επιλεγμένο
+          CF = "CtoF";
+        }
+        if (document.getElementById("FtoC").checked == true) {
+          CF = "FtoC";
+        }
+        if (CF == "CtoF") {
+          let farenait = vathmos * 1.8 + 32;
+          alert("Η θερμοκρασία σε Farenait είναι: " + farenait);
+        } else if (CF == "FtoC") {
+          let celsius = (vathmos - 32) * 0.56;
+          alert("Η θερμοκρασία σε Celsius είναι: " + celsius);
+        } else {
+          alert("Επιλέξτε την μετατροπή που επιθυμείτε");
+        }
+      }
+    </script>
+  </head>
+  <body>
+    <div>
+      <h1>Μετατροπή Celsius - Farenhait</h1>
+      <label for="vathmos">Δώσε βαθμό: </label>
+      <input type="text" name="vathmos" id="vathmos" value="0" />
+      <div>
+        <input type="radio" name="CF" value="CtoF" id="CtoF" />
+        <label for="CtoF">C => F</label>
+      </div>
+      <div>
+        <input type="radio" name="CF" value="FtoC" id="FtoC" />
+        <label for="FtoC">F => C</label>
+      </div>
+      <button onclick="convert()">Μετατροπή</button>
+    </div>
+  </body>
+</html>

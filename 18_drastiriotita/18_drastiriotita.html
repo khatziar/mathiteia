@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Δραστηριότητα 18</title>
+<script>
+  function validateForm() {
+    let onoma = document.forms["myform"]["onoma"].value;
+    let password = document.forms["myform"]["password"].value;
+    if ((onoma == "")||(password == "")) {
+      alert("Το όνομα χρήστη και το συνθηματικό δεν μπορεί να είναι κενά");
+      return false;
+    }
+  }
+</script>
+  </head>
+  <body>
+    <div>
+      <h1>javascript - Validation in form</h1>
+      <form name="myform" action="action_page.php" method="post">
+        <fieldset>
+          <legend>Είσοδος Χρήστη</legend>
+        <div>
+          <label for="onoma">Όνομα Χρήστη:</label><br>
+          <input type="text" name="onoma" id="onoma" />
+        </div>
+        <div>
+          <label for="password">Συνθηματικό:</label><br>
+          <input type="password" name="password" id="password" />
+        </div>
+
+
+        <br>
+        <input type="submit" value="Καταχώρηση" onclick="return validateForm()">
+      </fieldset>
+      </form>
+    </div>
+    
+  </body>
+</html>

@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Δραστηριότητα 17</title>
+
+  </head>
+  <body>
+    <div>
+      <h1>Φόρμα με POST</h1>
+      <form action="insert_page.php" method="post">
+        <fieldset>
+          <legend>Προσωπικά στοιχεία</legend>
+        <div>
+          <label for="onoma">Όνομα:</label><br>
+          <input type="text" name="onoma" id="onoma" />
+        </div>
+        <div>
+          <label for="epitheto">Επώνυμο:</label><br>
+          <input type="text" name="epitheto" id="epitheto" />
+        </div>
+        <div>
+          <label >Φύλο:</label>
+          <input type="radio" name="sex" id="male" value="male">
+          <label for="male">Άνδρας</label>
+          <input type="radio" name="sex" id="female" value="female">
+          <label for="female">Γυναίκα</label>
+        </div>
+
+        <br>
+        <input type="submit" value="Καταχώρηση">
+      </fieldset>
+      </form>
+    </div>
+    
+  </body>
+</html>
