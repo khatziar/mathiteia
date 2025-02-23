@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Μέγιστο n αριθμών</title>
+</head>
+<body>
+    <h1>Javascript που βρίσκει το n μέγιστoυς αριθμούς ενός πίνακα</h1>
+    <p>Δώστε τον αριθμό n και τους αριθμούς που θέλετε να ελέγξετε</p>
+    <form name="myForm" action="" onsubmit="return findMaxN()" >
+        n: <input type="number" name="n" />
+        <div id="messageN" style="color: red;"></div>    
+        Αριθμοί: <input type="text" name="numbers" />
+        <div id="messageNumbers" style="color: red;"></div>    
+        <input type="submit" value="Υπολογισμός" />
+        <input type="reset" value="Καθαρισμός" />
+    </form>
+    <script>
+        function findMaxN() {
+            var n = document.forms["myForm"]["n"].value;
+            var numbers = document.forms["myForm"]["numbers"].value;
+            let flagEmpty = false;
+            let flagN = false;
+            let flagNumbers = false;
+            let numbersArray = numbers.split(" ");
+            let numbersArrayLength = numbersArray.length;
+            let numbersArrayInt = [];
+            for (let i = 0; i < numbersArrayLength; i++) {
+                numbersArrayInt[i] = parseInt(numbersArray[i]);
+            }
+            if (n == "") {
+                document.getElementById("messageN").innerHTML = "Το n είναι απαραίτητο να συμπληρωθεί!";
+                flagEmpty = true;
+            }
+            if (isNaN(n)) {
+                document.getElementById("messageN").innerHTML = "Το n πρέπει να είναι αριθμός!";
+                flagN = true;
+            }
+            if (numbers == "") {
+                document.getElementById("messageNumbers").innerHTML = "Οι αριθμοί είναι απαραίτητο να συμπληρωθούν!";
+                flagEmpty = true;
+            }
+            if (flagEmpty || flagN){
+                return false;
+            }
+            else {
+                //ταξινόμηση πίνακα κατά φθίνοσυσα σειρά
+                let sorted = numbersArrayInt.sort((a, b) => b - a);
+                //Εκτύπωση του ταξινομημένου πίνακα
+                alert("Οι αριθμοί σε φθίνουσα σειρά είναι: " + sorted);
+                //επιλογή των n μεγαλύτερων αριθμών
+                let maxN = sorted.sort((a, b) => b - a).slice(0, n);
+                alert("Οι " + n + " μεγαλύτεροι αριθμοί είναι: " + maxN);
+                return true;
+            }
+        }
+        //Οταν γίνεται reset της φόρμας, τα μηνύματα εξαφανίζονται
+        document.querySelector('form').addEventListener('reset', function() {
+                document.getElementById("messageN").innerHTML = "";
+                document.getElementById("messageNumbers").innerHTML = "";
+                });
+    </script>
+
+
+</body>
+</html>

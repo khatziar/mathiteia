@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Υπολογισμός ημερών μέχρι μια ημερομηνία</title>
+  </head>
+  <body>
+    <h1>Υπολογισμός ημερών μέχρι μια συγκεκριμένη ημερομηνία</h1>
+    <form action="" onsubmit="return findDays(event);">
+      <p>
+        Δώστε την ημερομηνία στην οποία θέλετε να υπολογίσετε τις ημέρες μέχρι
+        αυτήν:
+      </p>
+      <label for="date">Δώστε την ημερομηνία:</label>
+      <input type="date" id="date" name="date" />
+      <input type="submit" value="Υπολογισμός" />
+      <input type="reset" value="Καθαρισμός" />
+    </form>
+    <div id="result"></div>
+    <script>
+      function findDays(event) {
+        event.preventDefault(); // Prevent form submission
+        // Get the date input value
+        let date = document.getElementById("date").value;
+
+        // Get today's date
+        let today = new Date();
+
+        // Convert the input date to a Date object
+        let dateToCompare = new Date(date);
+
+        // Calculate the difference in milliseconds
+        let diff = dateToCompare - today;
+
+        // Convert the difference from milliseconds to days
+        let days = Math.floor(diff / (1000 * 60 * 60 * 24));
+
+        // Display the result
+        document.getElementById("result").innerHTML =
+          "Οι ημέρες μέχρι την ημερομηνία " + date + " είναι: " + days;
+
+        return true;
+      }
+    </script>
+  </body>
+</html>

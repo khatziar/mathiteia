@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Άθροισμα περιττών</title>
+</head>
+<body>
+    <h1>Βρείτε το άθροισμα 1+3+5+..+n</h1>
+    <form action="" onsubmit="return findSum(event);">
+        <p>Δώστε τον αριθμό n και βρείτε το άθροισμα των περιττών αριθμών από 1 έως n</p>
+        <label for="n">Δώστε τον αριθμό n:</label>
+        <input type="number" id="n" name="n">
+        <input type="submit" value="Υπολογισμός">
+        <input type="reset" value="Καθαρισμός">
+    </form>
+
+    <p id="result"></p>
+    <script>
+        function findSum(event) {
+            event.preventDefault(); // Prevent form submission
+            let n = document.getElementById("n").value;
+            let sum = 0;
+            if (n == "") {
+                document.getElementById("result").innerHTML = "Ο αριθμός n είναι απαραίτητος να συμπληρωθεί!";
+                return false;
+            } else {    
+                n = parseInt(n);
+                for (let i = 1; i <= n; i += 2) {
+                    sum += i;
+                }
+                document.getElementById("result").innerHTML = "Το άθροισμα των περιττών αριθμών από 1 έως " + n + " είναι: " + sum;
+                return true;
+            }
+        }
+    </script>
+</body>
+</html>

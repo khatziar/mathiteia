@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Έλεγχος ορθότητας στοιχείων φόρμας</title>
+</head>
+<body>
+    <h2>Φόρμa εισαγωγής ονόματος και ελέγχου αν είναι συμπληρωμένο.</h2>
+    <h3>Αν είναι το τυπώνει, αν όχι βγάζει προειδοποιητικό μνμ κάτω από το πεδίο</h3>
+    
+    <form name="myForm" action="" onsubmit="return validateForm()" method="post">
+    Όνομα: <input type="text" name="fname" />
+    <input type="submit" value="Αποστολή" />
+    <div id="message" style="color: red;"></div>    
+</form>
+    <script>
+    function validateForm() {
+    // κοιτάξετ πως παίρνει την τιμή από το input
+        var x = document.forms["myForm"]["fname"].value;
+        if (x == "") {
+        document.getElementById("message").innerHTML = "Το όνομα είναι απαραίτητο να συμπληρωθεί!";
+        // alert("Το όνομα είναι απαραίτητο να συμπληρωθεί!");
+        return false;
+        }
+    else {
+        alert("Το όνομα που εισάγατε είναι: " + x);
+        return true;
+        }
+    }
+    </script>
+</body>
+</html>

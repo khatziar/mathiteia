@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Δευτερόλεπτα</title>
+</head>
+<body>
+    <h1>Εμφανίζει την τρέχουσα ώρα με ανανέωση δευτερολέπτων</h1>
+    <p id="clock"></p>
+    <script>
+        function showTime() {
+            let date = new Date();
+            let h = date.getHours();
+            let m = date.getMinutes();
+            let s = date.getSeconds();
+            let session = "AM";
+
+            if (h == 0) {
+                h = 12;
+            }
+
+            if (h > 12) {
+                h = h - 12;
+                session = "PM";
+            }
+
+            h = (h < 10) ? "0" + h : h;
+            m = (m < 10) ? "0" + m : m;
+            s = (s < 10) ? "0" + s : s;
+
+            let time = h + ":" + m + ":" + s + " " + session;
+            document.getElementById("clock").innerText = time;
+            setTimeout(showTime, 1000);
+        }
+
+        showTime();
+    </script>
+</body>
+</html>

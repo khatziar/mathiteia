@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Έλεγχος ορθότητας στοιχείων φόρμας</title>
+</head>
+<body>
+<h2>Φόρμα εισαγωγής και ελέγχου αν είναι συμπληρωμένα τα στοιχεία.</h2>
+<h3>Αν είναι τα τυπώνει, αν όχι βγάζει κόκκινο προειδοποιητικό μνμ κάτω από το πεδίο. </h3>
+<h3>Αν πατηθεί το reset καθαρίζει και τα πεδία και τα μηνύματα.</h3>
+
+    
+<form name="myForm" action="" onsubmit="return validateForm()" method="post">
+    Όνομα: <input type="text" name="fname" />
+    <div id="messageFname" style="color: red;"></div>    
+
+    Επώνυμο: <input type="text" name="lname" />
+    <div id="messageLname" style="color: red;"></div>  
+    
+    <input type="submit" value="Αποστολή" />
+    <input type="reset" value="Καθαρισμός" />
+</form>
+    <script>
+        
+        function validateForm() {
+            // κοιτάξετ πως παίρνει την τιμή από το input
+            var onoma = document.forms["myForm"]["fname"].value;
+            var eponimo = document.forms["myForm"]["lname"].value;
+            let flagEmpty = false;
+            
+            if (onoma == "") {
+                document.getElementById("messageFname").innerHTML = "Το όνομα είναι απαραίτητο να συμπληρωθεί!";
+                flagEmpty = true;
+                // return false;
+            }
+            if (eponimo == "") {
+                document.getElementById("messageLname").innerHTML = "Το επώνυμο είναι απαραίτητο να συμπληρωθεί!";
+                flagEmpty = true;
+                // return false;
+            }
+            if (flagEmpty){
+                return false;
+            }
+            else {
+                alert("Εισάγατε: " + onoma + " " + eponimo);
+                return true;
+            }
+        }
+
+        //Οταν γίνεται reset της φόρμας, τα μηνύματα εξαφανίζονται
+        document.querySelector('form').addEventListener('reset', function() {
+                document.getElementById("messageFname").innerHTML = "";
+                document.getElementById("messageLname").innerHTML = "";
+                });
+        </script>
+</body>
+</html>

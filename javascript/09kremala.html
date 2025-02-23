@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Κρεμάλα</title>
+</head>
+<body>
+    <h1>Κρεμάλα</h1>
+    <p>Μάντεψε τη λέξη με το παρακάτω παιχνίδι κρεμάλας.</p>
+    <p>Η λέξη που πρέπει να μαντέψεις είναι: <span id="word"></span></p>
+    <p>Έχεις <span id="lives"></span> προσπάθειες.</p>
+    <p>Μάντεψε γράφοντας γράμματα στο παρακάτω πλαίσιο:</p>
+    <input type="text" id="letter" maxlength="1">
+    <button onclick="checkLetter()">Έλεγχος</button>
+    <p id="message"></p>
+    <script>
+        let word = "ΚΡΕΜΑΛΑ";
+        let lives = 6;
+        let guessedWord = "";
+        for (let i = 0; i < word.length; i++) {
+            guessedWord += "_";
+        }
+        document.getElementById("word").innerText = guessedWord;
+        document.getElementById("lives").innerText = lives;
+        function checkLetter() {
+            let letter = document.getElementById("letter").value.toUpperCase();
+            if (letter.length != 1) {
+                document.getElementById("message").innerText = "Δώσε ένα γράμμα!";
+                return;
+            }
+            let newGuessedWord = "";
+            let found = false;
+            for (let i = 0; i < word.length; i++) {
+                if (word[i] == letter) {
+                    newGuessedWord += letter;
+                    found = true;
+                } else {
+                    newGuessedWord += guessedWord[i];
+                }
+            }
+            guessedWord = newGuessedWord;
+            if (!found) {
+                lives--;
+            }
+            document.getElementById("word").innerText = guessedWord;
+            document.getElementById("lives").innerText = lives;
+            if (lives == 0) {
+                document.getElementById("message").innerText = "Έχασες! Η λέξη ήταν: " + word;
+            } else if (guessedWord == word) {
+                document.getElementById("message").innerText = "Κέρδισες!";
+            }
+        }
+    </script>
+    
+</body>
+</html>
