@@ -1,0 +1,64 @@
+<!-- Το ίδιο με πριν + checkbox -->
+<html>
+<head>
+<title>ΦΟΡΜΑ HTML</title>
+<meta charset="UTF-8"/>
+</head>
+<body>
+<p>Παρακαλούμε, συμπληρώστε ΟΛΑ τα στοιχεία της παρακάτω φόρμας.</p>
+<form action="contact_form3.php" method="POST">
+ΟΝΟΜΑ:
+<br/>
+<input type="text" name="firstname" value="" />
+<br/>
+ΕΠΙΘΕΤΟ:
+<br/>
+<input type="text" name="lastname" value="" size="10" maxlength="20" />
+<br/>
+ΗΛΙΚΙΑ:
+<br/>
+<input type="number" name="age" value="" min="0" max="100" />
+<br/>
+ΦΥΛΟ:
+<br/>
+<input type="radio" name="gender" value="male" checked="checked" /> Άρρεν
+<br/>
+<input type="radio" name="gender" value="female"/> Θύλη
+<br/>
+<input type="radio" name="gender" value="other"/> Άλλο
+
+<br> ΑΓΑΠΗΜΕΝΑ ΑΘΛΗΜΑΤΑ:
+<br/>
+<input type="checkbox" name="football" value="1" /> Ποδόσφαιρο
+<br/>
+<input type="checkbox" name="basket" value="1"/> Μπάσκετ
+<br/>
+<input type="checkbox" name="volley" value="1"/> Βόλλευ
+
+<br> ΑΓΑΠΗΜΕΝΗ ΟΜΑΔΑ:
+<br/>
+<select name="omada"> 
+    <option value="0" selected>ΕΠΙΛΕΞΤΕ ΟΜΑΔΑ</option>
+    <option value="1">ΠΑΟΚ</option>
+    <option value="2">ΑΡΗΣ</option>
+    <option value="3">ΗΡΑΚΛΗΣ</option>
+</select>
+<br/>
+
+<br/>
+E-mail:
+<br/>
+<input type="email" name="email" placeholder="δώστε το email σου"/>
+<br/>
+ΘΕΜΑ:
+<br/>
+<input type="text" name="subject" />
+<br/>
+ΜΗΝΥΜΑ:
+<br/>
+<textarea name="message" rows="20" cols="40"></textarea>
+<br/>
+<input type="submit" value="Submit" />
+</form>
+</body>
+</html>
