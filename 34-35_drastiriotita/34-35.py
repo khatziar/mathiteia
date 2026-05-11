@@ -7,8 +7,10 @@ def changeStatefunction():
     state = e1['state']
     if state == 'normal':
         e1.configure(state='disabled')
+        b1.config(text='Start writing') #Αλλάζει το κείμενο του κουμπιού
     elif state == 'disabled':
         e1.configure(state='normal')
+        b1.config(text='Stop writing')
 
 def printfunction():
     tkMessageBox.showinfo("Επάγγελμα", "Το επάγγελμα που πληκτρολογήσατε είναι: " + e1.get().encode('utf-8'))
