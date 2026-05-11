@@ -6,27 +6,27 @@ class metr(object):
         self.ano = 20
 
         if counter >= self.kato and counter <= self.ano:
-            self.__i = counter
+            self.i = counter
         else:
             
             diafora_apo_ano = abs(self.ano - counter)
             diafora_apo_kato = abs(self.kato - counter)
 
             if diafora_apo_ano >= diafora_apo_kato:
-                self.__i = self.kato
+                self.i = self.kato
             else:
-                self.__i = self.ano
+                self.i = self.ano
     
     def auxisi(self):
-        if self.__i + 1 <= self.ano:
-            self.__i += 1
+        if self.i + 1 <= self.ano:
+            self.i += 1
         
     def meiosi(self):
-        if self.__i -1 >= self.kato:
-            self.__i -= 1
+        if self.i -1 >= self.kato:
+            self.i -= 1
     
     def printCounter(self):
-        print "Counter: ", self.__i
+        print "Counter: ", self.i
         
 
 # paradeigma 1
@@ -40,3 +40,9 @@ my_metr2 = metr(19)
 my_metr2.meiosi()
 
 my_metr2.printCounter()
+
+# paradeigma 3
+my_metr3 = metr(32)
+my_metr3.meiosi()
+
+my_metr3.printCounter()

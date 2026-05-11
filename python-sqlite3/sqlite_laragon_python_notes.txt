@@ -1,0 +1,105 @@
+Συνομιλία: SQLite, Laragon, MySQL και Python CRUD
+
+1. Τι είναι το SQLite
+
+Το SQLite είναι ένα ελαφρύ σύστημα διαχείρισης βάσεων δεδομένων (RDBMS)
+που: - Δεν χρειάζεται server - Αποθηκεύει όλη τη βάση σε ένα αρχείο
+(.db) - Υποστηρίζει SQL - Είναι ιδανικό για μικρά projects, εκπαίδευση
+και embedded εφαρμογές.
+
+------------------------------------------------------------------------
+
+2. SQLite σε Windows
+
+Βήματα: 1. Κατεβάζεις τα sqlite tools από το sqlite.org. 2.
+Αποσυμπιέζεις π.χ. στον φάκελο C:. 3. Τρέχεις από cmd: sqlite3 school.db
+
+Δημιουργείται αυτόματα το αρχείο βάσης.
+
+------------------------------------------------------------------------
+
+3. SQLite και PHP
+
+Η PHP υποστηρίζει SQLite μέσω: - PDO - SQLite3 extension
+
+Παράδειγμα σύνδεσης: $db = new PDO(“sqlite:school.db”);
+
+------------------------------------------------------------------------
+
+4. SQLite στο Laragon
+
+Αν έχεις εγκαταστήσει Laragon: - Δεν χρειάζεται ξεχωριστή εγκατάσταση
+SQLite - Η PHP περιλαμβάνει ήδη τα extensions: - pdo_sqlite - sqlite3
+
+Η βάση είναι απλό αρχείο μέσα στο project.
+
+Παράδειγμα: C:.db
+
+------------------------------------------------------------------------
+
+5. Διαχείριση SQLite
+
+Μπορείς να τη διαχειριστείς με:
+
+GUI εργαλείο: DB Browser for SQLite
+
+CLI: sqlite3 database.db
+
+------------------------------------------------------------------------
+
+6. Άνοιγμα MySQL από CMD στο Laragon
+
+Μέσα από το Laragon Terminal:
+
+mysql -u root
+
+ή
+
+mysql -u root -p
+
+Αν χρησιμοποιήσεις κανονικό cmd:
+
+cd C:... mysql -u root
+
+------------------------------------------------------------------------
+
+7. SQLite με Python
+
+Η Python έχει ενσωματωμένο module: sqlite3
+
+Παράδειγμα σύνδεσης:
+
+import sqlite3 conn = sqlite3.connect(“school.db”) cursor =
+conn.cursor()
+
+------------------------------------------------------------------------
+
+8. CRUD με Python και SQLite
+
+CREATE
+
+cursor.execute( “INSERT INTO students (name,grade) VALUES (?,?)”,
+(“Maria”,18.5) )
+
+READ
+
+cursor.execute(“SELECT * FROM students”) rows = cursor.fetchall()
+
+UPDATE
+
+cursor.execute( “UPDATE students SET grade=? WHERE id=?”, (19,1) )
+
+DELETE
+
+cursor.execute( “DELETE FROM students WHERE id=?”, (1,) )
+
+conn.commit()
+
+------------------------------------------------------------------------
+
+9. Εντολές Cursor
+
+execute() εκτελεί SQL executemany() εκτελεί πολλές εγγραφές
+executescript() εκτελεί πολλές SQL εντολές fetchone() επιστρέφει μία
+γραμμή fetchmany(n) επιστρέφει n γραμμές fetchall() επιστρέφει όλες τις
+γραμμές close() κλείνει τον cursor

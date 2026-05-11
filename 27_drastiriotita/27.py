@@ -1,3 +1,4 @@
+# -*- coding: utf-8 -*-
 # from https://mathiteia.tpallas.net/intro.php
 # Mathiteia - Python Askisi 27
 
@@ -33,5 +34,8 @@ class pepipedo(paral):
 		return self.emvado() * self.ypsos
 
 
+my_paral = paral(2, 3)
+print u"εμβαδό:", my_paral.emvado()
 my_cube = pepipedo(2, 3, 10)
-print my_cube.ogos()
+print u"εμβαδό βάσης:", my_cube.emvado()
+print u"όγκος: ", my_cube.ogos()

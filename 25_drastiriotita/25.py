@@ -26,3 +26,5 @@ myroloi = roloi(10, 26, 30)
 
 myroloi.showtime()
 print myroloi.totalseconds()
+print myroloi.wr
+print myroloi.lep   
